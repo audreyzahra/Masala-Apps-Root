@@ -40,7 +40,6 @@ class HomeActivity : AppCompatActivity() {
                 }
                 .show()
         }
-
     }
 
     private fun logout() {

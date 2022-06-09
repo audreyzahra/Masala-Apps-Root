@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chartView"
-            tools:listitem="@layout/item_list" />
+            tools:listitem="@layout/item_list_lokasi" />
 
     </LinearLayout>
 
