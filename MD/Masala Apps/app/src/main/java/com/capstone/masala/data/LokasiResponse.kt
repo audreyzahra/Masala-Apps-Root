@@ -12,13 +12,6 @@ data class ListLocation(
     val summarizeByLocation : ArrayList<ListTweet>
 )
 
-data class ListTweet (
-    val username : String? = null,
-    val tweet : String? = null,
-    val summarize : String? = null,
-    val typeSummarize : String? = null,
-    val time : String
-)
 
 
 

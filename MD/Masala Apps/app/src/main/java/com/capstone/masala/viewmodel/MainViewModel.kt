@@ -2,10 +2,7 @@ package com.capstone.masala.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.capstone.masala.api.ApiConfig
-import com.capstone.masala.data.LoginRequest
-import com.capstone.masala.data.LoginResponse
-import com.capstone.masala.data.RegisterRequest
-import com.capstone.masala.data.RegisterResponse
+import com.capstone.masala.data.*
 import retrofit2.Call
 
 class MainViewModel: ViewModel(){
@@ -23,5 +20,9 @@ class MainViewModel: ViewModel(){
         request.email = email
         request.passwords = password
         return ApiConfig.getApiService().userRegister(request)
+    }
+
+    fun getAll(token: String): Call<SummarizeResponse>{
+        return ApiConfig.getApiService().getAll(token)
     }
 }
