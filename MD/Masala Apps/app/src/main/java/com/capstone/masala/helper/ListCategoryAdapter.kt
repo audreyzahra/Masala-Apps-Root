@@ -1,5 +1,6 @@
 package com.capstone.masala.helper
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -28,9 +29,12 @@ class ListCategoryAdapter : RecyclerView.Adapter<ListCategoryAdapter.ListViewHol
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(data)
             }
+
             binding.apply {
                 tvCategory.text = data.category
-                tvJumlah.text = data.SummarizeByCategory.count().toString()
+                val sum : Int = data.SummarizeByCategory.count()
+                val percentage = (sum/954)*100
+                tvJumlah.text = sum.toString()
             }
         }
     }

@@ -18,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = PreferenceHelper(this)
+        supportActionBar?.title = "Welcome to Masala"
 
 
         binding.cv1.setOnClickListener {

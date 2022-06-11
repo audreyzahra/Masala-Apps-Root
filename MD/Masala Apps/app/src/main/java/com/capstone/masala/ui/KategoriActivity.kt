@@ -16,6 +16,7 @@ import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
 import com.capstone.masala.R
 import com.capstone.masala.data.ListCategory
+import com.capstone.masala.data.ListTweet
 import com.capstone.masala.data.SummarizeResponse
 import com.capstone.masala.databinding.ActivityKategoriBinding
 import com.capstone.masala.helper.Constant
@@ -28,8 +29,6 @@ class KategoriActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: PreferenceHelper
     private lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: ListCategoryAdapter
-    private val kota = listOf("jakarta","bandung","surabaya","semarang","yogyakarta")
-    private val jumlah = listOf(200,300,150,234,312)
     private lateinit var chart: AnyChartView
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,6 @@ class KategoriActivity : AppCompatActivity() {
         sharedPreferences = PreferenceHelper(this)
 
         chart = binding.chartView
-        startChart()
 
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
 
@@ -50,7 +48,6 @@ class KategoriActivity : AppCompatActivity() {
             override fun onItemClicked(data: ListCategory) {
                 Intent(this@KategoriActivity, TweetActivity::class.java).also {
                     it.putExtra(Constant.CATEGORY, data.category )
-                    it.putExtra(Constant.DATA_TWEET, data.SummarizeByCategory )
                     startActivity(it)
                 }
             }
@@ -58,21 +55,6 @@ class KategoriActivity : AppCompatActivity() {
         })
         getAllSummarize()
     }
-
-    private fun startChart() {
-        val pie: Pie = AnyChart.pie()
-
-        val dataPieChart: MutableList<DataEntry> = mutableListOf()
-
-        for (index in jumlah.indices){
-            dataPieChart.add(ValueDataEntry(kota.elementAt(index), jumlah.elementAt(index)))
-        }
-
-        pie.data(dataPieChart)
-        pie.title("Data Kota")
-        chart.setChart(pie)
-    }
-
     private fun getAllSummarize() {
         showLoading(true)
         binding.rvCategory.layoutManager = LinearLayoutManager(this)
@@ -81,9 +63,21 @@ class KategoriActivity : AppCompatActivity() {
         val token: String = sharedPreferences.getToken(Constant.TOKEN).toString()
         mainViewModel.getSummarize(token)
 
+        val pie: Pie = AnyChart.pie()
+        val dataPieChart: MutableList<DataEntry> = mutableListOf()
+
         mainViewModel.getListCategory().observe(this){
             if (it != null){
                 adapter.setList(it)
+                val datas = it
+                var allData : Int = 0
+
+                for (data in datas){
+                    dataPieChart.add(ValueDataEntry(data.category, data.SummarizeByCategory.count()))
+                }
+                pie.data(dataPieChart)
+                pie.title("Data by Category")
+                chart.setChart(pie)
                 showLoading(false)
             }
 

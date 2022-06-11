@@ -12,7 +12,8 @@
         android:layout_height="160dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="40dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#F9F3EE"
         app:cardElevation="@dimen/cardview_default_elevation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
@@ -24,8 +25,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/tweet" />
 
             <TextView
@@ -33,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
+                android:textColor="@color/black"
                 android:text="Summarize"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -45,8 +47,9 @@
         android:layout_width="150dp"
         android:layout_height="160dp"
         android:layout_marginTop="24dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="15dp"
         app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardBackgroundColor="#F9F3EE"
         app:layout_constraintEnd_toEndOf="@+id/cv_search"
         app:layout_constraintStart_toStartOf="@+id/cv_search"
         app:layout_constraintTop_toBottomOf="@+id/cv_search">
@@ -58,8 +61,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/arrow" />
 
             <TextView
@@ -68,6 +71,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
                 android:text="Logout"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -80,7 +84,8 @@
         android:layout_height="160dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="42dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#F9F3EE"
         app:cardElevation="@dimen/cardview_default_elevation"
         app:layout_constraintStart_toEndOf="@+id/cv1"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
@@ -92,8 +97,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/search" />
 
             <TextView
@@ -101,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
+                android:textColor="@color/black"
                 android:text="Search"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -113,8 +119,9 @@
         android:layout_width="150dp"
         android:layout_height="160dp"
         android:layout_marginTop="24dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="15dp"
         app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardBackgroundColor="#F9F3EE"
         app:layout_constraintEnd_toEndOf="@+id/cv1"
         app:layout_constraintStart_toStartOf="@+id/cv1"
         app:layout_constraintTop_toBottomOf="@+id/cv1">
@@ -126,8 +133,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/about" />
 
             <TextView
@@ -135,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
+                android:textColor="@color/black"
                 android:text="About"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -146,7 +154,7 @@
         android:id="@+id/imageView2"
         android:scaleType="centerCrop"
         android:layout_width="0dp"
-        android:layout_height="244dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
