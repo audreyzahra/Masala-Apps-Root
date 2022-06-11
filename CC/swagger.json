@@ -1,0 +1,303 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Masala Apps Project",
+      "description": "Masala Apps Project API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/summarize/": {
+          "get": {
+            "tags": ["Summarizes"],
+            "summary": "Get all Summarize",
+            "parameters": [
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/summarize/getSummarizeList": {
+          "get": {
+            "tags": ["Summarizes"],
+            "summary": "Get all Summarize",
+            "parameters": [
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/summarize/getSummarize/{id}": {
+            "get": {
+              "tags": ["Summarizes"],
+              "summary": "Get Summarize by ID",
+              "parameters": [
+                {
+                  "name": "path",
+                  "in": "path",
+                  "schema" : {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "x-access-token",
+                  "in": "header",
+                  "required": "true",
+                  "type": "string"
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "OK"
+                }
+              }
+            }
+        },
+        "/summarize/getSummarize/{category}": {
+          "get": {
+            "tags": ["Summarizes"],
+            "summary": "Get Summarize by Category",
+            "parameters": [
+              {
+                "name": "category",
+                "in": "path",
+                "schema" : {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/summarize/getSummarize/{category}/{location}": {
+          "get": {
+            "tags": ["Summarizes"],
+            "summary": "Get Summarize by Location",
+            "parameters": [
+              {
+                "name": "category",
+                "in": "path",
+                "schema" : {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "location",
+                "in": "path",
+                "schema" : {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/summarize/getSummarizeList/{category}/{location}": {
+          "get": {
+            "tags": ["Summarizes"],
+            "summary": "Get Summarize by Location List",
+            "parameters": [
+              {
+                "name": "category",
+                "in": "path",
+                "schema" : {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "location",
+                "in": "path",
+                "schema" : {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/summarize/addSummarize": {
+            "post": {
+              "tags": ["Summarizes"],
+              "summary": "Post Summarize",
+              "parameters": [
+                {
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Summarize"
+                  }
+                },
+                {
+                  "name": "x-access-token",
+                  "in": "header",
+                  "required": "true",
+                  "type": "string"
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "OK"
+                }
+              }
+            }
+        },
+        "/user/register": {
+          "post": {
+            "tags": ["Users"],
+            "summary": "Post Register",
+            "parameters": [
+              {
+                "in": "body",
+                "schema": {
+                  "$ref": "#/definitions/Register"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/user/login": {
+          "post": {
+            "tags": ["Users"],
+            "summary": "Post Login",
+            "parameters": [
+              {
+                "in": "body",
+                "schema": {
+                  "$ref": "#/definitions/Login"
+                }
+              },
+              {
+                "name": "x-access-token",
+                "in": "header",
+                "required": "true",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        }
+      },
+    "definitions": {
+        "Summarize": {
+          "required": ["userID", "username", "caption", "location", "summarize", "typeSummarize", "category", "createdDate"],
+          "properties": {
+            "userID": {
+              "type": "integer",
+              "uniqueItems": true
+            },
+            "username": {
+              "type": "string"
+            },
+            "caption": {
+              "type": "string"
+            },
+            "location": {
+                "type": "string"
+            },
+            "summarize": {
+                "type": "string"
+            },
+            "typeSummarize": {
+                "type": "string"
+            },
+            "category": {
+                "type": "string"
+            },
+            "createdDate": {
+                "type": "string"
+            }
+          }
+        },
+        "Register": {
+          "required": ["name", "email", "password"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "password": {
+                "type": "string"
+            }
+          }
+        },
+        "Login": {
+          "required": ["email", "password"],
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "password": {
+                "type": "string"
+            }
+          }
+        },
+        "Summarizes": {
+          "type": "array",
+          "$ref": "#/definitions/Summarize"
+        }
+    }
+}
