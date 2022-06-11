@@ -39,6 +39,10 @@ class RegisterActivity : AppCompatActivity() {
         edtPassword = binding.edtPassword
         btnRegister = binding.btnRegister
 
+        binding.tvGoLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
 
         edtEmail.addTextChangedListener(object  : TextWatcher{
@@ -87,7 +91,7 @@ class RegisterActivity : AppCompatActivity() {
         val password = binding.edtPassword.text.toString()
 
         val result = mainViewModel.register(name, email, password)
-        result.enqueue(object  : Callback<RegisterResponse>{
+        result.enqueue(object : Callback<RegisterResponse>{
             override fun onResponse(
                 call: Call<RegisterResponse>,
                 response: Response<RegisterResponse>

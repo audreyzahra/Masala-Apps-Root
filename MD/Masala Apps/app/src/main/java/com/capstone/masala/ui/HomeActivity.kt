@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         binding.cv1.setOnClickListener {
-            startActivity(Intent(this, KotaActivity::class.java))
+            startActivity(Intent(this, KategoriActivity::class.java))
         }
 
         binding.cvSearch.setOnClickListener {

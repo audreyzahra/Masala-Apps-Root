@@ -30,7 +30,7 @@ class ListLokasiAdapter : RecyclerView.Adapter<ListLokasiAdapter.ListViewHolder>
                 onItemClickCallback?.onItemClicked(data)
             }
             binding.apply {
-                tvLokasi.text = data.location
+                tvCategory
                 tvJumlah.text = list.size.toString()
             }
         }

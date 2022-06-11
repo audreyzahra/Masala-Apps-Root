@@ -30,7 +30,7 @@ class ListCategoryAdapter : RecyclerView.Adapter<ListCategoryAdapter.ListViewHol
             }
             binding.apply {
                 tvCategory.text = data.category
-                tvJumlah.text = list.size.toString()
+                tvJumlah.text = data.SummarizeByCategory.count().toString()
             }
         }
     }

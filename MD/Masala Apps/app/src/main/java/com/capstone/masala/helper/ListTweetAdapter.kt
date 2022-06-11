@@ -29,7 +29,7 @@ class ListTweetAdapter : RecyclerView.Adapter<ListTweetAdapter.ListViewHolder>()
             }
             binding.apply {
                 tvUsername.text = data.username
-                tvTweet.text = data.summarize
+                tvTweet.text = data.caption
             }
 
         }

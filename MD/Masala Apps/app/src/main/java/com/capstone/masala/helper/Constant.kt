@@ -8,5 +8,8 @@ class Constant {
         const val EXTRA_NAME = "extra_username"
         const val EXTRA_DESCRIPTION = "extra_id"
         const val EXTRA_AVATAR = "extra_avatar"
+        const val ALL_SUMMARIZE = "extra_data"
+        const val CATEGORY = "extra_category"
+        const val DATA_TWEET = "extra_tweet"
     }
 }

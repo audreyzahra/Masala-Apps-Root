@@ -49,6 +49,10 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
 
+        binding.tvMakeaccount.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
         EdtEmail.addTextChangedListener(object  : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }

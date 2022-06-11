@@ -6,12 +6,12 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
-    @POST("/summarize/login")
+    @POST("/user/login")
     fun userLogin(
         @Body loginRequest: LoginRequest
     ): Call<LoginResponse>
 
-    @POST("/summarize/register")
+    @POST("/user/register")
     fun userRegister(
         @Body registerRequest: RegisterRequest
     ): Call<RegisterResponse>
