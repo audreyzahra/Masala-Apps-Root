@@ -21,7 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.TweetActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.KategoriActivity"/>
         <activity
             android:name=".ui.KotaActivity"
             android:exported="false" />

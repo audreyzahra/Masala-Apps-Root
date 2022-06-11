@@ -11,12 +11,12 @@
         android:layout_width="150dp"
         android:layout_height="160dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="40dp"
-        app:cardCornerRadius="15dp"
+        android:layout_marginTop="24dp"
         app:cardBackgroundColor="#F9F3EE"
+        app:cardCornerRadius="15dp"
         app:cardElevation="@dimen/cardview_default_elevation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,8 +34,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
-                android:textColor="@color/black"
                 android:text="Summarize"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -83,12 +83,12 @@
         android:layout_width="150dp"
         android:layout_height="160dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="42dp"
-        app:cardCornerRadius="15dp"
+        android:layout_marginTop="24dp"
         app:cardBackgroundColor="#F9F3EE"
+        app:cardCornerRadius="15dp"
         app:cardElevation="@dimen/cardview_default_elevation"
         app:layout_constraintStart_toEndOf="@+id/cv1"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,8 +106,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="5dp"
-                android:textColor="@color/black"
                 android:text="Search"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -150,14 +150,31 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:scaleType="centerCrop"
-        android:layout_width="0dp"
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:iss_auto_cycle="true"
+        app:iss_delay="0"
+        app:iss_corner_radius="20"
+        android:layout_margin="20dp"
+        app:iss_error_image="@color/teal_700"
+        app:iss_period="3000"
+        app:iss_placeholder="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/bg_tweet" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Welcome to Masala App!"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_slider" />
 </androidx.constraintlayout.widget.ConstraintLayout>

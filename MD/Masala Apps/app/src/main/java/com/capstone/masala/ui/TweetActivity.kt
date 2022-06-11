@@ -1,6 +1,8 @@
 package com.capstone.masala.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.capstone.masala.R
@@ -22,12 +24,13 @@ class TweetActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFF")))
 
         adapter = ListTweetAdapter()
         adapter.notifyDataSetChanged()
 
         val category = intent.getStringExtra(Constant.CATEGORY)
-        val tweet = intent.getStringArrayListExtra(Constant.DATA_TWEET)
+//        val tweet = intent.getStringArrayListExtra(Constant.DATA_TWEET)
 
     }
 }

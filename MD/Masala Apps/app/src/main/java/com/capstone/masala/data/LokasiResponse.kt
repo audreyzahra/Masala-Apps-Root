@@ -1,4 +1,6 @@
 package com.capstone.masala.data
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 data class LokasiResponse (
     var status : Boolean? = null,

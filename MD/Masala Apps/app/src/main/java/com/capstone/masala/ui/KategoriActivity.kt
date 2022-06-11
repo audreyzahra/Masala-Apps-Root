@@ -3,6 +3,8 @@ package com.capstone.masala.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,6 +38,8 @@ class KategoriActivity : AppCompatActivity() {
         binding = ActivityKategoriBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFF")))
+
         adapter = ListCategoryAdapter()
         adapter.notifyDataSetChanged()
         sharedPreferences = PreferenceHelper(this)
@@ -47,7 +51,8 @@ class KategoriActivity : AppCompatActivity() {
         adapter.setOnItemClickCallback(object : ListCategoryAdapter.OnItemClickCallback {
             override fun onItemClicked(data: ListCategory) {
                 Intent(this@KategoriActivity, TweetActivity::class.java).also {
-                    it.putExtra(Constant.CATEGORY, data.category )
+                    it.putExtra(Constant.CATEGORY, data.category)
+                    it.putExtra(Constant.DATA_TWEET, data.SummarizeByCategory)
                     startActivity(it)
                 }
             }

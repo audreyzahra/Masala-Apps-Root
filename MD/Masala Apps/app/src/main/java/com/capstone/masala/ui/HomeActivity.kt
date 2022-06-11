@@ -1,6 +1,8 @@
 package com.capstone.masala.ui
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +10,9 @@ import androidx.appcompat.app.AlertDialog
 import com.capstone.masala.R
 import com.capstone.masala.databinding.ActivityHomeBinding
 import com.capstone.masala.helper.PreferenceHelper
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -19,6 +24,16 @@ class HomeActivity : AppCompatActivity() {
 
         sharedPreferences = PreferenceHelper(this)
         supportActionBar?.title = "Welcome to Masala"
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFF")))
+
+
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel(R.drawable.sosial_media, "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.tweet_board, "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.bg_tweet, "And people do that.", ScaleTypes.CENTER_CROP))
+
+        val imageSlider = binding.imageSlider
+        imageSlider.setImageList(imageList)
 
 
         binding.cv1.setOnClickListener {
