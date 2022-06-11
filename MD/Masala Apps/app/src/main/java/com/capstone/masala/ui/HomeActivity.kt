@@ -24,6 +24,14 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, KotaActivity::class.java))
         }
 
+        binding.cvSearch.setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+        }
+
+        binding.cvAbout.setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
+        }
+
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Are you sure?")
