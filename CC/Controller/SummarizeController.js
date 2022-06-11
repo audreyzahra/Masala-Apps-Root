@@ -4,9 +4,10 @@ const uuid = require('uuid');
 
 const addSummarize =  async(req, res, next) => {
     try {
-        const userID = uuid.v4();
+        // const userID = uuid.v4();
         const createdDate = new Date().toISOString();
         const {
+            userID,
             username,
             caption,
             category,
