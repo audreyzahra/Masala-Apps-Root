@@ -10,6 +10,8 @@ from tweepy import OAuthHandler
 from datetime import datetime, timedelta
 import pandas as pd
 import configparser
+import datetime
+import pymysql
 
 
 # In[99]:
@@ -26,15 +28,14 @@ access_token = config['twitter']['access_token']
 access_token_secret = config['twitter']['access_token_secret']
 
 # authenticate
-auth = tweepy.OAuthHandler(api_key, api_key_secret)
+auth = tw.OAuthHandler(api_key, api_key_secret)
 auth.set_access_token(access_token, access_token_secret)
 
-api = tweepy.API(auth)
+api = tw.API(auth)
     
-import datetime
 today = datetime.date.today()
 date_since = today-datetime.timedelta(days=7)
-tweets = tweepy.Cursor(api.search_tweets,
+tweets = tw.Cursor(api.search_tweets,
               q="#keluhanmasyarakat -filter:retweets",
               lang="id",
               since=date_since,
@@ -56,9 +57,6 @@ users_locs
 
 # In[105]:
 
-
-import pandas as pd
-
 tweet_text = pd.DataFrame(data=users_locs,
                     columns=['Username'])
 tweet_text.insert(1, "Caption", tweetss, True)
@@ -68,6 +66,38 @@ databaru = tweet_text
 
 # In[ ]:
 
+try: 
+    # Connect to the database
+    connection = pymysql.connect(host='34.101.161.166',
+                                port=3306,
+                                user='masala',
+                                password='',
+                                db='masala_apps')
 
+    cursor=connection.cursor()
 
+    # creating column list for insertion
+    cols = "`,`".join([str(i) for i in databaru.columns.tolist()])
 
+    # Insert DataFrame recrds one by one.
+    for i,row in databaru.iterrows():
+        sql = "INSERT INTO `ScriptCrawling` (`" +cols + "`) VALUES (" + "%s,"*(len(row)-1) + "%s)"
+        cursor.execute(sql, tuple(row))
+
+        # the connection is not autocommitted by default, so we must commit to save our changes
+        connection.commit()
+
+    # Execute query
+    sql = "SELECT * FROM `ScriptCrawling`"
+    cursor.execute(sql)
+    # Fetch all the records
+    result = cursor.fetchall()
+    for i in result:
+        print(i)
+
+except NameError:
+    print ("NameError occurred. Some variable isn't defined.")
+
+finally:
+    # close the database connection using close() method.
+    connection.close()
