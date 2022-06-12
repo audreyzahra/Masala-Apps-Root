@@ -21,4 +21,10 @@ interface ApiService {
         @Header("x-access-token") token : String?
     ) : Call<SummarizeResponse>
 
+    @GET("/summarize/getsummarize/{category}")
+    fun getTweet(
+        @Header("x-access-token") token : String?,
+        @Path("category") category: String
+    ) : Call<TweetByCategoryResponse>
+
 }

@@ -12,6 +12,7 @@ import retrofit2.Response
 
 class MainViewModel: ViewModel(){
     val dataSummarize = MutableLiveData<ArrayList<ListCategory>>()
+    val ListTweet = MutableLiveData<ArrayList<ListTweet>>()
 
     fun login(email: String, password:String): Call<LoginResponse> {
         val request = LoginRequest()
@@ -52,8 +53,32 @@ class MainViewModel: ViewModel(){
             })
     }
 
+    fun getTweetList(token: String, category: String){
+        ApiConfig.getApiService()
+            .getTweet(token, category)
+            .enqueue(object : Callback<TweetByCategoryResponse> {
+                override fun onResponse(
+                    call: Call<TweetByCategoryResponse>,
+                    response: Response<TweetByCategoryResponse>
+                ) {
+                    if (response.isSuccessful){
+                        ListTweet.postValue(response.body()?.getSummarize)
+                    }
+                }
+
+                override fun onFailure(call: Call<TweetByCategoryResponse>, t: Throwable) {
+                    Log.d("Failed", "Failed search data")
+
+                }
+            })
+    }
+
     fun getListCategory(): LiveData<ArrayList<ListCategory>> {
         return dataSummarize
+    }
+
+    fun getListTweet(): LiveData<ArrayList<ListTweet>> {
+        return ListTweet
     }
 
 }

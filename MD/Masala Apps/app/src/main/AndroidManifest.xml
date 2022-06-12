@@ -25,7 +25,8 @@
             android:parentActivityName=".ui.KategoriActivity"/>
         <activity
             android:name=".ui.KotaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.HomeActivity"/>
         <activity
             android:name=".ui.SplashScreenActivity"
             android:exported="true">
@@ -40,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.KategoriActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.HomeActivity"/>
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false" />

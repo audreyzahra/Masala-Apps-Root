@@ -39,6 +39,7 @@ class KategoriActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFF")))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = ListCategoryAdapter()
         adapter.notifyDataSetChanged()
@@ -52,7 +53,6 @@ class KategoriActivity : AppCompatActivity() {
             override fun onItemClicked(data: ListCategory) {
                 Intent(this@KategoriActivity, TweetActivity::class.java).also {
                     it.putExtra(Constant.CATEGORY, data.category)
-                    it.putExtra(Constant.DATA_TWEET, data.SummarizeByCategory)
                     startActivity(it)
                 }
             }
@@ -75,7 +75,6 @@ class KategoriActivity : AppCompatActivity() {
             if (it != null){
                 adapter.setList(it)
                 val datas = it
-                var allData : Int = 0
 
                 for (data in datas){
                     dataPieChart.add(ValueDataEntry(data.category, data.SummarizeByCategory.count()))

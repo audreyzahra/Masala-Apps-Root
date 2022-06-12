@@ -28,8 +28,8 @@ class HomeActivity : AppCompatActivity() {
 
 
         val imageList = ArrayList<SlideModel>()
-        imageList.add(SlideModel(R.drawable.sosial_media, "The animal population decreased by 58 percent in 42 years.", ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.tweet_board, "Elephants and tigers may become extinct.", ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.sosial_media, "Bangkit Academy Led by Google.", ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.tweet_board, "Kampus Merdeka", ScaleTypes.CENTER_CROP))
         imageList.add(SlideModel(R.drawable.bg_tweet, "And people do that.", ScaleTypes.CENTER_CROP))
 
         val imageSlider = binding.imageSlider

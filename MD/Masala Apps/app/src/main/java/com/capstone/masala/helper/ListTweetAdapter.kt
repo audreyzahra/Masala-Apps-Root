@@ -3,6 +3,9 @@ package com.capstone.masala.helper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.capstone.masala.R
 import com.capstone.masala.data.ListTweet
 import com.capstone.masala.databinding.ItemListLokasiBinding
 import com.capstone.masala.databinding.ItemTweetBinding
@@ -30,6 +33,11 @@ class ListTweetAdapter : RecyclerView.Adapter<ListTweetAdapter.ListViewHolder>()
             binding.apply {
                 tvUsername.text = data.username
                 tvTweet.text = data.caption
+                Glide.with(itemView)
+                    .load(R.drawable.user_profile)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .circleCrop()
+                    .into(ivAvatar)
             }
 
         }
