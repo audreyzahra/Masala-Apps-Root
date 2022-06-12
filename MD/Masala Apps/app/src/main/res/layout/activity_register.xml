@@ -19,16 +19,16 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:transitionName="iv_logo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="125dp"
         android:layout_marginTop="50dp"
         android:contentDescription="logo"
+        android:src="@drawable/text_logo"
+        android:transitionName="iv_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/masala" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textregister"
