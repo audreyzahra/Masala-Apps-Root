@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[90]:
-
-
 import re
 import tweepy as tw
 from tweepy import OAuthHandler
@@ -12,9 +9,6 @@ import pandas as pd
 import configparser
 import datetime
 import pymysql
-
-
-# In[99]:
 
 
 # read config
@@ -55,16 +49,12 @@ users_locs = [[tweet.user.screen_name] for tweet in tweets]
 users_locs
 
 
-# In[105]:
-
 tweet_text = pd.DataFrame(data=users_locs,
                     columns=['Username'])
 tweet_text.insert(1, "Caption", tweetss, True)
 tweet_text
 databaru = tweet_text
 
-
-# In[ ]:
 
 try: 
     # Connect to the database
