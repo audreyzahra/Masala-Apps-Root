@@ -100,7 +100,6 @@ class LoginActivity : AppCompatActivity() {
                     showLoading(false)
                 }
             }
-
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Failed", "Retrofit Gagal")
             }

@@ -45,10 +45,8 @@ class MainViewModel: ViewModel(){
                         dataSummarize.postValue(response.body()?.AllSummarize)
                     }
                 }
-
                 override fun onFailure(call: Call<SummarizeResponse>, t: Throwable) {
-                    Log.d("Failed", "Failed search data")
-
+                    Log.d("Failed", "Failed get Data")
                 }
             })
     }

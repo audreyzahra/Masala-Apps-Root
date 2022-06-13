@@ -26,5 +26,4 @@ interface ApiService {
         @Header("x-access-token") token : String?,
         @Path("category") category: String
     ) : Call<TweetByCategoryResponse>
-
 }
